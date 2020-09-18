@@ -7,7 +7,6 @@ class UserAPI extends RESTDataSource {
 	}
 	async getUser() {
 		const response = await this.get("user");
-		console.log('response:', response)
 		return this.userReducer(response.data);
 	}
 
@@ -16,6 +15,21 @@ class UserAPI extends RESTDataSource {
 			id: user.id,
 			title: user.title,
 		};
+	}
+
+	async getAllUser() {
+		const response = await this.get("users");
+		return response.data
+	}
+
+	async findUser(id) {
+		const response = await this.get("users");
+		const list = Array.isArray(response.data) ? response.data : []
+		let user;
+		list.forEach(item => {
+			if (item.id === Number(id)) user = item;
+		});
+		return user;
 	}
 }
 
