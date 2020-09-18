@@ -8,6 +8,9 @@ module.exports = {
         },
         findUser(_, args, { dataSources }) {
             return dataSources.userAPI.findUser(args.id);
+        },
+        getUserBooks(_, args, { dataSources }) {
+            return dataSources.userAPI.getUserBooks(args.id);
         }
     }
 }
