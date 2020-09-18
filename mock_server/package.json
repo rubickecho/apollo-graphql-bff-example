@@ -1,0 +1,16 @@
+{
+  "name": "mock_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mock": "json-server --watch main/db.js --routes routes.json --m post-to-get.js --port 3000"
+  },
+  "author": "peakcool",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.1",
+    "mockjs": "^1.1.0"
+  }
+}
