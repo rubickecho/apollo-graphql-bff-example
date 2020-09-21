@@ -9,6 +9,11 @@ const typeDefs = gql`
         status: Int
     }
 
+    extend type Book @key(fields: "userId") {
+        userId: Int @external
+        user: User
+    }
+
     type Query {
         user: User
         users: [User]

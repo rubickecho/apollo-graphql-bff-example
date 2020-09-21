@@ -4,13 +4,15 @@ module.exports = {
             return dataSources.bookAPI.fetchAllBook();
         }
     },
-    Books: {
+    Book: {
         user(book) {
+            console.log('user book', book)
             return { __typename: "User", id: book.userId }
         }
     },
     User: {
         __resolveReference(user, { dataSources }) {
+            console.log('user', user)
             return {books: dataSources.bookAPI.fetchUserBooks(user.id)};
         }
     }

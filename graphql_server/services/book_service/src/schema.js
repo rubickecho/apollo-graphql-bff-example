@@ -1,11 +1,12 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-    type Book @key(fields: "id") {
+    type Book @key(fields: "userId") {
         id: ID!
         title: String
         price: Float
-        user: User @provides(fields: "title")
+        userId: Int
+        # user: User @provides(fields: "id")
     }
 
     #-The extend keyword indicates that Product is an entity that is defined in another
@@ -19,7 +20,7 @@ const typeDefs = gql`
     #must be annotated with the @external directive to indicate that the field originates in another service.
     extend type User @key(fields: "id") {
         id: ID! @external
-        title: String @external
+        # title: String @external
         books: [Book]
     }
 
