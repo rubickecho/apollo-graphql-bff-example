@@ -26,7 +26,7 @@ class UserAPI extends RESTDataSource {
 		return response.data
 	}
 
-	async findUser(id) {
+	async fetchUserById(id) {
 		const response = await this.get("users");
 		const list = Array.isArray(response.data) ? response.data : []
 		let user;
