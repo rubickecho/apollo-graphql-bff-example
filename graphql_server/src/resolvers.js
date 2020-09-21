@@ -9,7 +9,8 @@ module.exports = {
         findUser(_, args, { dataSources }) {
             return dataSources.userAPI.findUser(args.id);
         },
-        getUserBooks(_, args, { dataSources }) {
+        getUserBooks(_, args, { dataSources, authScope }) {
+            console.log('authScope', authScope)
             return dataSources.userAPI.getUserBooks(args.id);
         }
     }

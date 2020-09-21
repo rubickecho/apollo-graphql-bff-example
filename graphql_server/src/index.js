@@ -9,7 +9,11 @@ const server = new ApolloServer({
     resolvers,
     dataSources: () => ({
         userAPI: new UserAPI()
-    })
+    }),
+    context: ({ req }) => ({
+        authScope: 'authorization'
+    }),
+    tracing: true // 跟踪面板，分析性能 
 })
 
 server.listen().then(({url}) => {
