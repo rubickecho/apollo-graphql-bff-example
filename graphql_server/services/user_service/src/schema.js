@@ -1,26 +1,22 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-    type User {
+    type User @key(fields: "id") {
         id: ID!
         title: String
         created_time: String
+        age: Int
         status: Int
-        books: [Book]
     }
 
-    type Book {
-        id: ID!
-        title: String
-        price: Float
+    extend type Book @key(fields: "userId") {
+        userId: Int @external
         user: User
     }
 
     type Query {
         user: User
         users: [User]
-        findUser(id: ID!): User
-        getUserBooks(id: ID!): User
     }
 `;
 

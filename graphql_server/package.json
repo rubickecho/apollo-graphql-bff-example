@@ -1,17 +1,17 @@
 {
-  "name": "graphql_server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "main": "gateway.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node src/index.js"
+    "start-gateway": "nodemon gateway.js",
+    "start-service-user": "nodemon services/user_service/src/index.js",
+    "start-service-book": "nodemon services/book_service/src/index.js",
+    "start-services": "concurrently \"npm:start-service-*\""
   },
-  "author": "peakcool",
-  "license": "ISC",
   "dependencies": {
-    "apollo-datasource-rest": "^0.9.3",
+    "@apollo/gateway": "^0.20.1",
     "apollo-server": "^2.17.0",
     "graphql": "^15.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
