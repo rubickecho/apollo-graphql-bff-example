@@ -8,7 +8,7 @@ class BookAPI extends RESTDataSource {
 	willSendRequest(request) {
 		request.headers.set('Authorization', this.context.token);
 	}
-	
+
 	async fetchAllBook() {
 		const response = await this.get("books");
 		return response.data;

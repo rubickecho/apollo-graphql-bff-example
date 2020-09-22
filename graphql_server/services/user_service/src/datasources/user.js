@@ -5,10 +5,6 @@ class UserAPI extends RESTDataSource {
 		super();
 		this.baseURL = "http://localhost:3000/";
 	}
-	willSendRequest(request) {
-		request.headers.set('Authorization', this.context.token);
-	}
-	
 	async getUser() {
 		const response = await this.get("user");
 		return this.userReducer(response.data);
@@ -53,7 +49,6 @@ class UserAPI extends RESTDataSource {
 			})
 			user.books = books;
 		}
-		console.log('user:', user)
 		return user;
 	}
 }

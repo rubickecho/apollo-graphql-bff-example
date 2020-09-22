@@ -13,6 +13,9 @@ const server = new ApolloServer({
     dataSources: () => ({
         bookAPI: new BookAPI()
     }),
+    context: ({ req }) => {
+        return { token: req.headers.authorization || '' }
+    },
     tracing: true // 跟踪面板，分析性能 
 })
 
