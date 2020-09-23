@@ -3,9 +3,11 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
     scalar Date
 
+    directive @auth on FIELD_DEFINITION
+
     type User @key(fields: "id") {
         id: ID!
-        title: String
+        title: String @auth
         created_time: Date
         age: Int
         """
