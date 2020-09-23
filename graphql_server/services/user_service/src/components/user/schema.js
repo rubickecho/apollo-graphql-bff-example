@@ -1,11 +1,16 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
+    scalar Date
+
     type User @key(fields: "id") {
         id: ID!
         title: String
-        created_time: String
+        created_time: Date
         age: Int
+        """
+        用户状态 1: 正常 -1: 禁用
+        """
         status: Int
     }
 

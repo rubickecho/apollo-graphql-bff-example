@@ -6,7 +6,6 @@ const typeDefs = gql`
         title: String
         price: Float
         userId: Int
-        # user: User @provides(fields: "id")
     }
 
     #-The extend keyword indicates that Product is an entity that is defined in another
@@ -20,7 +19,6 @@ const typeDefs = gql`
     #must be annotated with the @external directive to indicate that the field originates in another service.
     extend type User @key(fields: "id") {
         id: ID! @external
-        # title: String @external
         books: [Book]
     }
 

@@ -32,6 +32,7 @@ Apollo Graphql BFF方案探索学习;
 * [x] gateway
 * [x] Apollo Federation: entities
 * [x] 设置请求头
+* [ ] 自定义标量
 * [ ] 错误处理
 * [ ] 日志
 * [ ] 缓存

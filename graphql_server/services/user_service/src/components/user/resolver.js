@@ -1,4 +1,6 @@
-module.exports = {
+const allCustomScalars = require('../../graphql/scalars/index.js')
+
+const resolvers = {
     Query: {
         user(_, __, { dataSources }) {
             return dataSources.userAPI.getUser();
@@ -16,5 +18,8 @@ module.exports = {
         __resolveReference(book, { dataSources }) {
             return {user: dataSources.userAPI.fetchUserById(book.userId)};
         }
-    }
+    },
+    ...allCustomScalars
 }
+
+module.exports = resolvers
