@@ -32,9 +32,9 @@ Apollo Graphql BFF方案探索学习;
 * [x] gateway
 * [x] Apollo Federation: entities
 * [x] 设置请求头
-* [x] 自定义标量
+* [x] 自定义类型
 * [x] 自定义指令
-* [ ] 错误处理
+* [ ] 异常处理
 * [ ] 日志
 * [ ] 缓存
 * [ ] 同步Client端redux数据

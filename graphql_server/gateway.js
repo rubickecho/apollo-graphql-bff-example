@@ -1,6 +1,6 @@
 const { ApolloServer } = require("apollo-server");
 const { ApolloGateway, RemoteGraphQLDataSource } = require("@apollo/gateway");
-
+const ReportForbiddenOperationsPlugin = require("./src/plugins/ApolloServerPluginReportForbiddenOperation");
 class AuthenticatedDataSource extends RemoteGraphQLDataSource {
     willSendRequest({ request, context }) {
         request.http.headers.set('authorization', context.token);
@@ -25,6 +25,14 @@ const gateway = new ApolloGateway({
             const token = req.headers.authorization || '';
             return { token };
         },
+        plugins: [
+            // ReportForbiddenOperationsPlugin({ debug: true, log: {
+            //     env: 'development',
+            //     appLogLevel: 'debug', 
+            //     dir: 'logs/gateway'
+            // }}),
+            ReportForbiddenOperationsPlugin({ debug: true })
+        ],
         // engine: false,
         subscriptions: false
     });

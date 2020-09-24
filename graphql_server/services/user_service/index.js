@@ -1,14 +1,15 @@
+
 const Koa = require("koa");
 const { ApolloServer, SchemaDirectiveVisitor } = require('apollo-server-koa');
 const { buildFederatedSchema } = require('@apollo/federation');
-
 const graphqlSchemas = require('./src/graphql/index.js');
-const authMiddleware = require('./src/middlewares/auth');
+
+const Log = require('./src/middlewares/log/logger');
+
 const allCustomDirectives = require('./src/graphql/directives');
 const UserAPI = require('./src/datasources/user');
 
 const isProd = process.env.NODE_ENV === "production";
-
 /**
  * buildFederatedSchema(graphqlSchemas) 
  * graphqlSchemas [Array] [{schema-1, resolver-1}, {schema-2, resolver-2}]
@@ -42,7 +43,14 @@ const server = new ApolloServer({
 })
 
 const app = new Koa();
-app.use(authMiddleware);
+
+app.use(Log({
+    env: "development",
+    projectName: 'user-service',
+    appLogLevel: 'debug',
+    dir: 'logs/user-service',
+    serverIp: ''
+}))
 
 /**
  * 将graphql服务连接到koa框架
