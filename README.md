@@ -35,7 +35,8 @@ Apollo Graphql BFF方案探索学习;
 * [x] 自定义类型
 * [x] 自定义指令
 * [ ] 异常处理
-* [ ] 日志
+* [x] 日志
 * [ ] 缓存
+* [x] client端示例
 * [ ] 同步Client端redux数据
 * [ ] 环境变量管理
