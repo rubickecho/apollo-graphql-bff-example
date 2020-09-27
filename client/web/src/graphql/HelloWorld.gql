@@ -1,0 +1,7 @@
+# query HelloWorld ($name: String) {
+#   hello (name: $name)
+# }
+query user {
+  id
+  title
+}

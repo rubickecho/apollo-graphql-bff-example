@@ -1,0 +1,12 @@
+query users {
+	users {
+		id
+		title
+		status
+		books {
+			id
+			title
+			price
+		}
+	}
+}

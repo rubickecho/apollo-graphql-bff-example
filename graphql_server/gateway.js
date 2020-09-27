@@ -26,12 +26,12 @@ const gateway = new ApolloGateway({
             return { token };
         },
         plugins: [
-            // ReportForbiddenOperationsPlugin({ debug: true, log: {
-            //     env: 'development',
-            //     appLogLevel: 'debug', 
-            //     dir: 'logs/gateway'
-            // }}),
-            ReportForbiddenOperationsPlugin({ debug: true })
+            ReportForbiddenOperationsPlugin({ debug: true, log: {
+                env: 'development',
+                appLogLevel: 'debug', 
+                dir: 'logs/gateway'
+            }}),
+            // ReportForbiddenOperationsPlugin({ debug: true })
         ],
         // engine: false,
         subscriptions: false

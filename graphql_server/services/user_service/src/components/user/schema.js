@@ -7,7 +7,7 @@ const typeDefs = gql`
 
     type User @key(fields: "id") {
         id: ID!
-        title: String @auth
+        title: String
         created_time: Date
         age: Int
         """

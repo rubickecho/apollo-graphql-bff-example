@@ -754,6 +754,11 @@ cssfilter@0.0.10:
   resolved "https://registry.npm.taobao.org/cssfilter/download/cssfilter-0.0.10.tgz#c6d2672632a2e5c83e013e6864a42ce8defd20ae"
   integrity sha1-xtJnJjKi5cg+AT5oZKQs6N79IK4=
 
+dataloader@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/dataloader/download/dataloader-2.0.0.tgz#41eaf123db115987e21ca93c005cd7753c55fe6f"
+  integrity sha1-QerxI9sRWYfiHKk8AFzXdTxV/m8=
+
 date-format@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/date-format/download/date-format-2.1.0.tgz#31d5b5ea211cf5fd764cd38baf9d033df7e125cf"
@@ -838,11 +843,6 @@ dicer@0.3.0:
   integrity sha1-6s2Ys7+/kuirXC/bcaqsRLsGuHI=
   dependencies:
     streamsearch "0.1.2"
-
-dotenv@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.npm.taobao.org/dotenv/download/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
-  integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
 
 ee-first@1.1.1:
   version "1.1.1"
