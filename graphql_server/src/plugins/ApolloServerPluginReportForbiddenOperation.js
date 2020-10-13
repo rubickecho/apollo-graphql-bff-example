@@ -57,7 +57,7 @@ const ReportForbiddenOperationsPlugin = function ReportForbiddenOperationsPlugin
                 appLogLevel: log.appLogLevel, 
                 dir: log.dir
             }, 
-            'cheese'
+            'server'
         );
     }
     /**

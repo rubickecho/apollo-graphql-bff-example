@@ -33,6 +33,13 @@ const gateway = new ApolloGateway({
             }}),
             // ReportForbiddenOperationsPlugin({ debug: true })
         ],
+        formatError: (err) => {
+            // Don't give the specific errors to the client.
+            // return new Error('Internal server error');
+            // Otherwise return the original error.  The error can also
+            // be manipulated in other ways, so long as it's returned.
+            return err.message;
+        },
         // engine: false,
         subscriptions: false
     });

@@ -1,5 +1,7 @@
 const { RESTDataSource } = require("apollo-datasource-rest");
-
+const {
+	ApolloError,
+  } = require('apollo-server');
 class UserAPI extends RESTDataSource {
 	constructor() {
 		super();
@@ -11,7 +13,11 @@ class UserAPI extends RESTDataSource {
 
 	async getUser() {
 		const response = await this.get("user");
-		return this.userReducer(response.data);
+		if (response.status === 200) {
+			return this.userReducer(response.data);
+		} else {
+			throw new ApolloError(response.message);
+		}
 	}
 
 	userReducer(user) {
@@ -23,7 +29,12 @@ class UserAPI extends RESTDataSource {
 
 	async getAllUser() {
 		const response = await this.get("users");
-		return response.data
+		if (response.status === 200) {
+			return response.data
+		} else {
+			throw new ApolloError(response.message);
+		}
+		// return response.data
 	}
 
 	async fetchUserById(id) {
