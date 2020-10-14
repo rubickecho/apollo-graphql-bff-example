@@ -13,10 +13,12 @@ class UserAPI extends RESTDataSource {
 
 	async getUser() {
 		const response = await this.get("user");
+		console.log('response', response)
 		if (response.status === 200) {
 			return this.userReducer(response.data);
 		} else {
-			throw new ApolloError(response.message);
+			throw new ApolloError(JSON.stringify(response));
+			// throw new ApolloError(response);
 		}
 	}
 
